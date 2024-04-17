@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>chencho_webapp</title>
+    <link rel="icon" type="image/x-icon" href="../Data_Output/unosat.png" />
+
+    <!-- This is my Calcite Design API -->
+    <script
+      type="module"
+      src="https://js.arcgis.com/calcite-components/2.7.1/calcite.esm.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://js.arcgis.com/calcite-components/2.7.1/calcite.css"
+    />
+
+    <!-- This is my ArcGIS API from the Enterprise SDK builder-->
+    <link
+      rel="stylesheet"
+      href="https://js.arcgis.com/4.29/esri/themes/light/main.css"
+    />
+    <script src="https://js.arcgis.com/4.29/"></script>
+
+    <!-- This is my link to JS code and CSS -->
+    <link rel="stylesheet" href="styles.css" />
+    <script src="main.js"></script>
+  </head>
+  <body class="calsite-mode-light">
+    <calcite-shell>
+      <!-- This will add a left panel -->
+      <calcite-shell-panel slot="panel-start">
+        <!-- This will add a legend in my left panel -->
+        <calcite-panel>
+          <calcite-block heading="Map legend" collapsible>
+            <calcite-icon slot="icon" icon="legend"></calcite-icon>
+            <div id="legend-container"></div>
+          </calcite-block>
+          <calcite-block heading="Layers" collapsible>
+            <calcite-icon slot="icon" icon="layers"></calcite-icon>
+            <div id="layer-container"></div>
+          </calcite-block>
+        </calcite-panel>
+      </calcite-shell-panel>
+      <!-- This will add a central panel -->
+      <calcite-panel>
+        <div id="viewDiv"></div>
+      </calcite-panel>
+      <!-- This will add a left panel -->
+      <calcite-shell-panel slot="panel-end">
+        <calcite-panel>
+          <calcite-block heading="Basemap" collapsible open>
+            <calcite-icon slot="icon" icon="basemap"></calcite-icon>
+            <div id="basemap-container"></div>
+          </calcite-block>
+        </calcite-panel>
+      </calcite-shell-panel>
+
+      <!-- This will add a navigation/header -->
+      <calcite-navigation slot="header">
+        <calcite-action slot="navigation-action" compact>
+          <img
+            src="../Data_Output/unosat.png"
+            style="width: 50px; height: 50px"
+            alt="UNOSAT logo"
+          />
+        </calcite-action>
+        <calcite-navigation-logo
+          slot="logo"
+          heading="Thimphu Map by UNOSAT"
+          description="The thimphu is presenting infrastructure data prepared by UNOSAT in the capacity development training"
+        ></calcite-navigation-logo>
+        <!-- This enables me to add button in my page in the header -->
+        <calcite-action
+          slot="content-end"
+          id="app-details-action"
+          appearance="transparent"
+          scale="l"
+          text="app details"
+          icon="information"
+        ></calcite-action>
+      </calcite-navigation>
+      <!-- This will enable a pop up or modal in my body part -->
+      <calcite-modal id="app-details-modal">
+        <h2 slot="header">Welcome</h2>
+        <div slot="content">
+          <calcite-label>
+            Welcome to Thimphu Map, your comprehensive guide to the heart of
+            Bhutan's capital! Explore the intricate layers of Thimphu's
+            infrastructure with ease. From roads to landmarks, our application
+            provides you with essential insights to navigate the city
+            seamlessly. Let's embark on a journey through Thimphu's vibrant
+            streets together!
+          </calcite-label>
+        </div>
+        <div slot="back">
+          <calcite-label layout="inline">
+            United Nations Satellite Centre (UNOSAT)
+          </calcite-label>
+        </div>
+      </calcite-modal>
+    </calcite-shell>
+  </body>
+</html>
